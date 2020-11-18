@@ -9,7 +9,9 @@ namespace YahtzeeTests
         [Fact]
         public void GetValueShouldReturnOne()
         {
-            var actual = Die.GetValue();
+            Die d = new Die();
+
+            var actual = d.GetValue();
             Assert.Equal(1, actual);
         }
     }
