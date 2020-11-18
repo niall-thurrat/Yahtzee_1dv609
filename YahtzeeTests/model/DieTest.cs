@@ -14,5 +14,14 @@ namespace YahtzeeTests
             var actual = d.GetValue();
             Assert.Equal(1, actual);
         }
+
+        [Fact]
+        public void RollShouldReturnOne()
+        {
+            Die d = new Die();
+
+            var actual = d.Roll();
+            Assert.Equal(1, actual);
+        }
     }
 }
