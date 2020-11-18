@@ -7,5 +7,10 @@ namespace Yahtzee
         public Die() {}
 
         public int GetValue() => 1;
+
+        public int Roll()
+        {
+            return GetValue();
+        }
     }
 }
