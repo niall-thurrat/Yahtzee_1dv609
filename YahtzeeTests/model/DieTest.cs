@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 using Yahtzee;
 
@@ -9,18 +8,18 @@ namespace YahtzeeTests
         [Fact]
         public void GetValueShouldReturnOne()
         {
-            Die d = new Die();
+            Die sut = new Die(1);
 
-            var actual = d.GetValue();
+            var actual = sut._value;
             Assert.Equal(1, actual);
         }
 
         [Fact]
         public void RollShouldReturnOne()
         {
-            Die d = new Die();
+            Die sut = new Die(1);
 
-            var actual = d.Roll();
+            var actual = sut.Roll();
             Assert.Equal(1, actual);
         }
     }
