@@ -1,4 +1,6 @@
+using System;
 using Xunit;
+using Moq;
 using Yahtzee;
 
 namespace YahtzeeTests
@@ -8,19 +10,24 @@ namespace YahtzeeTests
         [Fact]
         public void GetValueShouldReturnOne()
         {
-            Die sut = new Die(1);
+            Random random = new Random();
+            Die sut = new Die(random);
 
-            var actual = sut._value;
+            var actual = sut.GetValue();
             Assert.Equal(1, actual);
         }
 
         [Fact]
-        public void RollShouldReturnOne()
+        public void RollShouldChangeValueToTwo()
         {
-            Die sut = new Die(1);
+            var mockR = new Mock<Random>();
+            mockR.Setup(r => r.Next(1, 7)).Returns(2);
+            var sut = new Die(mockR.Object);
 
-            var actual = sut.Roll();
-            Assert.Equal(1, actual);
+            sut.Roll();
+
+            var actual = sut.GetValue();
+            Assert.Equal(2, actual);
         }
     }
 }
