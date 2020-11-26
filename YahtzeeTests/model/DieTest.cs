@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using Xunit.Sdk;
 using Moq;
-using Yahtzee;
+using Yahtzee.model;
 
 namespace YahtzeeTests.model
 {

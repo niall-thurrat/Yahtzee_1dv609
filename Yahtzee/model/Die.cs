@@ -1,6 +1,6 @@
 using System;
 
-namespace Yahtzee
+namespace Yahtzee.model
 {
     public class Die
     {
