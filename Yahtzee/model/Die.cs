@@ -10,6 +10,9 @@ namespace Yahtzee
 
         public Die(Random random)
         {
+            if (random == null)
+                throw new ArgumentNullException();
+
             _random = random;
             _value = 1;
         }
