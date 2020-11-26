@@ -1,9 +1,10 @@
 using System;
 using Xunit;
+using Xunit.Sdk;
 using Moq;
 using Yahtzee;
 
-namespace YahtzeeTests
+namespace YahtzeeTests.model
 {
     public class DieTest
     {
@@ -29,5 +30,20 @@ namespace YahtzeeTests
             var actual = sut.GetValue();
             Assert.Equal(2, actual);
         }
+
+        [Fact]
+        public void constructorShouldThrowWhenNoArg()
+        {
+            try
+            {
+                Die sut = new Die(null);
+                throw new XunitException("constructor doesn't throw exception");
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
     }
 }
