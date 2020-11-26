@@ -1,14 +1,16 @@
+using System.Collections.Generic;
+
 namespace Yahtzee.model
 {
     public class Player
     {
-        private Die _die;
+        private List<Die> _dice = new List<Die>();
 
-        public Player(Die die)
+        public Player(List<Die> dice)
         {
-            _die = die;
+            _dice = dice;
         }
 
-        public Die GetDice() => _die;
+        public List<Die> GetDice() => _dice;
     }
 }

@@ -10,13 +10,20 @@ namespace YahtzeeTests.model
     public class PlayerTest
     {
         [Fact]
-        public void GetDiceShouldReturnADie()
+        public void GetDiceShouldReturnDice()
         {
             Random random = new Random();
-            var mockD = new Die(random);
-            var player = new Player(mockD);
+            var mockDice = new List<Die>();
 
-            var expected = mockD;
+            for (int i = 0; i < 1; i++)
+            {
+                var mockDie = new Die(random);
+                mockDice.Add(mockDie);
+            }
+
+            var player = new Player(mockDice);
+
+            var expected = mockDice;
             var actual = player.GetDice();
             
             Assert.Equal(expected, actual);
