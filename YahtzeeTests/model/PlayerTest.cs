@@ -9,43 +9,24 @@ namespace YahtzeeTests.model
 {
     public class PlayerTest
     {
-        [Fact]
-        public void GetDiceShouldReturnDice()
-        {
-            Random random = new Random();
-            var mockDice = new List<Die>();
-
-            for (int i = 0; i < 1; i++)
-            {
-                var mockDie = new Die(random);
-                mockDice.Add(mockDie);
-            }
-
-            var player = new Player(mockDice);
-
-            var expected = mockDice;
-            var actual = player.GetDice();
-            
-            Assert.Equal(expected, actual);
-        }
-
-        [Fact]
-        public void GetDiceShouldReturnTwoDie()
+        [Theory]
+        [InlineData(1, 1)]
+        [InlineData(2, 2)]
+        public void GetDiceShouldReturnDice(int diceCount, int expected)
         {
             var random = new Random();
             var mockDice = new List<Die>();
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < diceCount; i++)
             {
                 var mockDie = new Die(random);
                 mockDice.Add(mockDie);
             }
 
             var sut = new Player(mockDice);
-
             var actual = sut.GetDice().Count;
-            
-            Assert.Equal(2, actual);
+
+            Assert.Equal(expected, actual);
         }
     }
 }
